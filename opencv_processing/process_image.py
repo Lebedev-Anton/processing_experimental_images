@@ -125,13 +125,14 @@ if __name__ == '__main__':
     template_orr = read_image_from_path(template_path, 'COLOR')
     template_img = read_image_from_path(template_path, 'GRAY')
     template_img = set_binary_color(template_img, 75, 255)
+    # template_img = resize_img(template_img, 85)
     # cv2.imshow('gray_pic', template_img)
     # cv2.waitKey()
 
     n_img, coord_points = find_shapes_by_pattern(img, template_img, ORIGINAL)
     print(coord_points)
     # n_img = find_contours(template_img)
-    # n_img = resize_img(n_img, 30)
+    n_img = resize_img(n_img, 30)
     # cv2.imshow('gray_pic', n_img)
     # cv2.waitKey()
 
