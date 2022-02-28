@@ -1,0 +1,67 @@
+{% load static %}
+
+<!doctype html>
+<html lang="ru">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class = "row">
+            <div class="col-8">
+                <img src="{% static 'TEST2.JPG' %}" class="img-fluid" alt="Фото с камеры">
+            </div>
+            <div class="col-4">
+                <form action="{% url 'make_photo' %}">
+                    {% csrf_token %}
+                    <div class="row">
+                        <label>Выберете ISO</label>
+                    </div>
+                    <div class="row">
+                        <select class="form-select" aria-label="Default select example" name="ISO">
+                            <option selected>{{ setting.ISO }}</option>
+                            <option>AUTO</option>
+                            <option>ISO_80</option>
+                            <option>ISO_100</option>
+                            <option>ISO_200</option>
+                            <option>ISO_400</option>
+                            <option>ISO_800</option>
+                            <option>ISO_1600</option>
+                        </select>
+                    </div>
+                    <div class="row">
+                        <label>Выберете White balance</label>
+                    </div>
+                    <div class="row">
+                        <select class="form-select" aria-label="Default select example" name="wb">
+                            <option selected>{{ setting.white_balance }}</option>
+                            <option>Auto</option>
+                            <option>Daylight</option>
+                            <option>Cloudy</option>
+                            <option>Tungsten</option>
+                            <option>Fluorescent</option>
+                            <option>Fluorescent_H</option>
+                            <option>Unknown</option>
+                            <option>Custom</option>
+                        </select>
+                    </div>
+                    <div class="row">
+                        <input class="btn btn-primary" type="submit" value="Сделать фото">
+                    </div>
+                    <div class="row">
+                        <a  href="/download/" download>Скачать текущую фотографию</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('', include('camera_command.urls')),
+    path('api/', include('api.urls')),
+    path('', include('image_setting.urls')),
     path('admin/', admin.site.urls),
 ]
